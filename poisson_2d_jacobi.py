@@ -80,42 +80,21 @@ def main():
 
         u_new[1:N, 1:N] = 0.25 * (u[2:N+1,1:N] + U[0:N-1,1:N] + u[1:N, 2:N+1] + u[1:N, 0:N-1] - (h**2) * f[1:N, 1:N])
 
-        
-        # TODO:
-        # Actualice los puntos interiores usando Jacobi.
-        #
-        # Para cada i,j interior:
-        #
-        # u_new[i,j] = 0.25 * (
-        #     u[i+1,j] + u[i-1,j] + u[i,j+1] + u[i,j-1]
-        #     - h**2 * f[i,j]
-        # )
-        #
-        # Recuerde que los puntos interiores son:
-        # i = 1, ..., N-1
-        # j = 1, ..., N-1
+        # Procedemos a calcular el error de convergencia en los puntos interiores:
 
-        # TODO:
-        # Calcule el error de convergencia:
-        #
-        # error_conv = max |u_new - u|
-        #
-        # Sugerencia:
-        # error_conv = np.max(np.abs(...))
+        error_conv = np.max(np.abs(u_new[1:N, 1:N] - u[1:N, 1:N]))
 
         errores_convergencia.append(error_conv)
 
-        # TODO:
-        # Copie los valores nuevos hacia u.
-        #
-        # Importante:
-        # Puede copiar solamente los puntos interiores,
-        # para mantener fijas las condiciones de frontera.
+        #Procedemos a copiar los valores nuevos hacia u
+        # En este caso, usamos un método indicado para mantener las condiciones de frontera intactas, donde tenemos ahora que:
 
-        # TODO:
-        # Incremente el contador de iteraciones.
+        u[1:N, 1:N] = u_new[1:N, 1:N]
 
-        pass
+        # Y finalmente, procedemos a incrementar el contador de iteraciones dentro desde bucle while.abs
+        
+        iteracion += 1
+       
 
     error_exacto = error_maximo(u, u_exacta)
 
