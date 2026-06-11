@@ -1,0 +1,3 @@
+Archivo de Comparación.
+
+En este archivo se procederá a indicar la respuesta a algunas preguntas, en donde tenemos las iteraciones para Jacobi, las iteraciones paa Gauss-Seidel, la tolerancia y la solución más parecida a la solución analítica.
