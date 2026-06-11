@@ -75,6 +75,12 @@ def main():
 
     while error_conv > tol and iteracion < max_iter:
 
+        # Procedemos a actualizar los puntos interiores usando el método de Jacobi
+        # Para esto, podemos usar slicing, donde procedemos a actualizar en bloque del índice 1 al N-1, esto nos queda de la siguiente forma:
+
+        u_new[1:N, 1:N] = 0.25 * (u[2:N+1,1:N] + U[0:N-1,1:N] + u[1:N, 2:N+1] + u[1:N, 0:N-1] - (h**2) * f[1:N, 1:N])
+
+        
         # TODO:
         # Actualice los puntos interiores usando Jacobi.
         #
