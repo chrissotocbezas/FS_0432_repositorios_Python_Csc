@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 # Procedemos a definir la función fuente
 
-def f(x, y):
+def fuente(x, y):
     return np.sin(np.pi * x) * np.sin(np.pi *y)
 
 def solucion_exacta(x, y):
@@ -54,12 +54,12 @@ def main():
 
     # Colocamos el dominio para x y y
 
-    x = np.linspace(0.0, 1.0. N+1) #N + 1 se realiza por el tema del paso
+    x = np.linspace(0.0, 1.0, N+1) #N + 1 se realiza por el tema del paso
     y = np.linspace(0.0, 1.0, N+1)
 
     X, Y = np.meshgrid(x, y, indexing="ij")
 
-    f = f(x,y)
+    f = fuente(x,y)
     u_exacta = solucion_exacta(X,Y) # El arreglo para X y Y se utiliza para la solución u_exacta
 
     # NOTA: En Gauss-Seidel no requerimos u_new para el almacenamiento del bloque completo, ya que las actualizaciones ocurren sobre la misma matriz 'u'
