@@ -1,0 +1,7 @@
+Método: Gauss-Seidel 2D
+N =  50
+h =  0.02
+Tolerancia =  1e-08
+Iteraciones =  3608
+Error de convergencia final =  9.99419812880431e-09
+Error maximo vs. solución exacta = 1.2879695171531813e-05
