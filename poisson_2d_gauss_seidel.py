@@ -14,5 +14,23 @@ def solucion_exacta(x, y):
     return -np.sin(np.pi * x) * np.sin(np.pi * y) / (2.0 * (np.pi)**2)
 
 # En la función anterior, procedimos a definir la solución exacta de la función
+# Definimos la función para calcular el error máximo
 
-# Procedemos a ejecutar el método de Gauss-Seidel
+def error_maximo(u, u_exacta):
+    return np.max(np.abs(u-u_exacta))
+
+# Procedemos a ejecutar el método de Gauss-Seidel con una función
+def graficar_mapa(u, titulo, nombre_archivo, cmap):
+    plt.figure(figsize=(8,5))
+
+    # Procedemos a usar U(x_i, y_j)
+
+    plt.imshow(u.T, origin="lower", extent=[0,1,0,1], cmap="viridis")
+
+    plt.colorbar(label="u(x,y)")
+    plt.xlabel("x")
+    plt.ylabel("y")
+    plt.title(titulo)
+    plt.tight_layout()
+    plt.savefig(nombre_archivo, dpi=200)
+    plt.close()
