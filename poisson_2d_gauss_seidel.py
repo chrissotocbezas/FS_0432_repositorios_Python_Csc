@@ -89,3 +89,31 @@ def main():
         # Procedemos a incrementar el contador de iteraciones para que esto no recurra en un bucle infinito sin que estas se guarden
 
         iteracion += 1
+
+    error_exacto = error_maximo(u, u_exacta)
+
+    # Procedemos a mostrar los resultados en la consola
+
+    print("Método: Gauss-Seidel 2D")
+    print("N = ",N)
+    print("h = ", h)
+    print("Tolerancia = ", tol)
+    print("Iteraciones = ", iteracion)
+    print("Error de convergencia final = ", error_conv)
+    print("Error maximo vs. solución exacta =", error_exacto)
+
+    # Procedemos generar mapas de calor para cada solución
+
+    graficar_mapa(u, "Gauss-Seidel 2D: Solución numérica", "solucion_gauss_seidel_mapacalor.png")
+    graficar_mapa(u_exacta, "Poisson 2D: Solucion Exacta", "solucion_exacta_mapacalor.png")
+
+    # Colocamos ahora el mapa de calor para el error absoluto
+
+    error_absoluto = np.abs(u-u_exacta)
+    graficar_mapa(error_absoluto, "Gauss-Seidel 2D: Error Absoluto", "error_absoluto_gauss_seidel_heatmap.png", cmap="coolwarm")
+    graficar_error_convergencia(errores_convergencia, "error_convergencia_gauss_seidel.png")
+    plt.show()
+
+if __name__ == "main":
+    main()
+
