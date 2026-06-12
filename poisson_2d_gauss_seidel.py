@@ -59,7 +59,7 @@ def main():
 
     X, Y = np.meshgrid(x, y, indexing="ij")
 
-    f = fuente(x,y)
+    f_evaluada = fuente(X,Y)
     u_exacta = solucion_exacta(X,Y) # El arreglo para X y Y se utiliza para la solución u_exacta
 
     # NOTA: En Gauss-Seidel no requerimos u_new para el almacenamiento del bloque completo, ya que las actualizaciones ocurren sobre la misma matriz 'u'
@@ -81,7 +81,7 @@ def main():
         # AL recorrer i, la fila 'i-1' ya contiene los valores nuevos de esta iteración. 
 
         for i in range(1, N):
-            u[i, 1:N] = 0.25 * (u[i+1, 1:N] + u[i-1, 1:N] + u[i, 2:N+1] + u[i, 0:N-1] - (h**2) *f[i, 1:N])
+            u[i, 1:N] = 0.25 * (u[i+1, 1:N] + u[i-1, 1:N] + u[i, 2:N+1] + u[i, 0:N-1] - (h**2) *f_evaluada[i, 1:N])
         
         error_conv = np.max(np.abs(u[1:N, 1:N] - u_old[1:N, 1:N]))
         errores_convergencia.append(error_conv)
