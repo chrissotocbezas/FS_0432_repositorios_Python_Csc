@@ -18,12 +18,7 @@ def solucion_exacta(x, y):
 
 
 def error_maximo(u, u_exacta):
-    # TODO:
-    # Calcule el error maximo entre la solucion numerica y la solucion exacta.
-    #
-    # Sugerencia:
-    # return np.max(np.abs(...))
-    pass
+   return np.max(np.abs(u - u_exacta)) # Devolvemos el error máximo.
 
 
 def graficar_mapa(u, titulo, nombre_archivo):
