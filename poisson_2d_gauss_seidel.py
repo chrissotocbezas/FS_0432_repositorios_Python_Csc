@@ -81,7 +81,7 @@ def main():
         # AL recorrer i, la fila 'i-1' ya contiene los valores nuevos de esta iteración. 
 
         for i in range(1, N):
-            u[i, 1:N] = 0.25 * (u[I+1, 1:N] + u[i-1, 1:N] + U[i, 2:N+1] + u[i, 0:N-1] - (h**2) *f[i, 1:N])
+            u[i, 1:N] = 0.25 * (u[i+1, 1:N] + u[i-1, 1:N] + u[i, 2:N+1] + u[i, 0:N-1] - (h**2) *f[i, 1:N])
         
         error_conv = np.max(np.abs(u[1:N, 1:N] - u_old[1:N, 1:N]))
         errores_convergencia.append(error_conv)
@@ -104,8 +104,8 @@ def main():
 
     # Procedemos generar mapas de calor para cada solución
 
-    graficar_mapa(u, "Gauss-Seidel 2D: Solución numérica", "solucion_gauss_seidel_mapacalor.png")
-    graficar_mapa(u_exacta, "Poisson 2D: Solucion Exacta", "solucion_exacta_mapacalor.png")
+    graficar_mapa(u, "Gauss-Seidel 2D: Solución numérica", "solucion_gauss_seidel_mapacalor.png", "viridis")
+    graficar_mapa(u_exacta, "Poisson 2D: Solucion Exacta", "solucion_exacta_mapacalor.png", "viridis")
 
     # Colocamos ahora el mapa de calor para el error absoluto
 
@@ -114,6 +114,6 @@ def main():
     graficar_error_convergencia(errores_convergencia, "error_convergencia_gauss_seidel.png")
     plt.show()
 
-if __name__ == "main":
+if __name__ == "__main__":
     main()
 
