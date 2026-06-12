@@ -77,4 +77,15 @@ def main():
         u_old = u.copy()
 
         # Procedemos a realizar una actualización fila por fila consecutiva para logar un Gauss-Seidel real y donde apliquemos una formulación específica para vectores
-        # Esto lo podemos conseguir mediante un bucle for
+        # Esto lo podemos conseguir mediante un bucle for para recorrer cada parte del arreglo matricial
+        # AL recorrer i, la fila 'i-1' ya contiene los valores nuevos de esta iteración. 
+
+        for i in range(1, N):
+            u[i, 1:N] = 0.25 * (u[I+1, 1:N] + u[i-1, 1:N] + U[i, 2:N+1] + u[i, 0:N-1] - (h**2) *f[i, 1:N])
+        
+        error_conv = np.max(np.abs(u[1:N, 1:N] - u_old[1:N, 1:N]))
+        errores_convergencia.append(error_conv)
+
+        # Procedemos a incrementar el contador de iteraciones para que esto no recurra en un bucle infinito sin que estas se guarden
+
+        iteracion += 1
