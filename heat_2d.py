@@ -40,6 +40,7 @@ u = np.zeros((Nx + 1, Ny + 1))
 def aplicar_frontera(u):
     # TODO:
     # implementar las condiciones de frontera
+    pass
 
 aplicar_frontera(u)
 
