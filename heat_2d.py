@@ -113,7 +113,7 @@ im = ax.imshow(
     snapshots[0].T,
     origin="lower",
     extent=[0, Lx, 0, Ly],
-    cmap="hot",
+    cmap="Blues", # Modificación del archivo para generar un gif con colores azules.
     vmin=0.0,
     vmax=np.max(snapshots[0])
 )
@@ -150,6 +150,6 @@ anim = FuncAnimation(
     blit=True
 )
 
-anim.save("calor_2d.gif", writer="pillow", fps=15)
+anim.save("calor_2d_azules.gif", writer="pillow", fps=15) # Se genera un nuevo gif con los colores azules.
 
 plt.show()
