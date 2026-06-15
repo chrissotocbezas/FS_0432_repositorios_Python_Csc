@@ -69,6 +69,10 @@ for n in range(num_steps + 1):
     #
     # cuidado con copias superficiales
 
+    if n % snapshot_interval == 0:
+        snapshots.append(np.copy(u)) # Si se cumple esta condición, guardamos los resultados en la lista creadas para los snapshots, para que se vayan agregando a la lista
+        tiempos.append(n * dt) # Agregamos los pasos de tiempo a la lista de tiempos
+
 
 
     # TODO:
@@ -77,6 +81,18 @@ for n in range(num_steps + 1):
     # aplicar condiciones de frontera
     #
     # preparar arreglos u y u_new para siguiente iteración
+
+    # Proponemos el doble bucle explícito para integrar todos los nodos internos
+
+    for i in range(1, Nx):
+        for j in range(1, Ny):
+            u_new[i,j] = u[i, j] + r * (u[i+1, j] + u[i-1, j] + u[i, j+1] + u[i, j-1] - 4 *u[i, j])
+    
+    # Una vez calculado todo el interior del paso actual, procedemos a aplicar las condiciones de frontera sobre la nueva malla
+
+    aplicar_frontera(u_new)
+
+    u = np.copy(u_new) # Actualizamos los datos para u para la próxima iteración
 
 
 
