@@ -27,6 +27,18 @@ snapshot_interval = 20
 dt = (r * (h**2)) / kappa # Esto se realiza con respecto al proceso de discretización indicado para nuestra ecuación de calor 
 num_steps = int(t_final / dt) # Lo indicamos como un valor entero, para evitar inexactitudes o errores en los bucles que utilizaremos más adelante
 
+# Para agregar en el output.txt, debemos generar algunos prints para esto:
+
+print("=========================================================")
+print("Simulación de Ecuación de Calor 2D - LAB 12")
+print(f"Dimensiones del dominio: Lx = {Lx}, Ly = {Ly}")
+print(f"Malla computacional: Nx = {Nx}, Ny = {Ny}")
+print(f"Paso espacial (h): {h:.5f}")
+print(f"Coeficiente de difusividiad (kappa): {kappa}")
+print(f"Factor de estabilidad (r): {r}")
+print(f"Paso temporal calculado (dt): {dt:.12f} s")
+print(f"Número total de pasos temporales (num_steps): {num_steps}")
+
 
 # -----------------------------
 # Condicion inicial
@@ -73,16 +85,11 @@ for n in range(num_steps + 1):
         snapshots.append(np.copy(u)) # Si se cumple esta condición, guardamos los resultados en la lista creadas para los snapshots, para que se vayan agregando a la lista
         tiempos.append(n * dt) # Agregamos los pasos de tiempo a la lista de tiempos
 
+        # Procedemos a agregar actualizaciones...
+        t_max = np.max(u)
+        print(f"Paso {n:4d} / {num_steps} | t = {n*dt:.6f} s | Snapshot (T_max = {t_max:.4f})")
 
 
-    # TODO:
-    # completar la actualización
-    #
-    # aplicar condiciones de frontera
-    #
-    # preparar arreglos u y u_new para siguiente iteración
-
-    # Proponemos el doble bucle explícito para integrar todos los nodos internos
 
     for i in range(1, Nx):
         for j in range(1, Ny):
