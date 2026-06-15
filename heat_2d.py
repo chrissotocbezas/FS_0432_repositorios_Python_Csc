@@ -21,11 +21,6 @@ r = 0.20
 t_final = 0.1
 snapshot_interval = 20
 
-# TODO:
-# calcular 
-# dt
-# num_steps
-
 # Procedemos a indicar nuestro dt y los pasos numéricos que debemos realizar
 # En este caso, declaramos dt y num_steps
 
@@ -44,9 +39,16 @@ u = np.zeros((Nx + 1, Ny + 1))
 # -----------------------------
 
 def aplicar_frontera(u):
-    # TODO:
-    # implementar las condiciones de frontera
-    pass
+    # Procedemos a aplicar las condiciones de aplicar
+    # Aplicamos las condiciones en bordes de x (Partes izquierda y derecha del rectángulo)
+
+    u[0, :] = 10.0
+    u[-1, :] = 10.0 # Lo que indicamos aquí, es que lo indicamos para todos los valores de y en las coordenadas x indicadas
+
+    # Procedemos a definir las condiciones de frontera para la parte y para el límite inferior y superior
+
+    u[:, 0] = 5.0
+    u[:, -1] = 5.0
 
 aplicar_frontera(u)
 
