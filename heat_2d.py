@@ -13,7 +13,7 @@ Ly = 1.0
 Nx = 50
 Ny = 50
 
-kappa = 1.0
+kappa = 1.0 # Tenemos inicializada nuestra constante kappa.
 
 h = Lx / Nx
 
@@ -25,6 +25,12 @@ snapshot_interval = 20
 # calcular 
 # dt
 # num_steps
+
+# Procedemos a indicar nuestro dt y los pasos numéricos que debemos realizar
+# En este caso, declaramos dt y num_steps
+
+dt = (r * (h**2)) / kappa # Esto se realiza con respecto al proceso de discretización indicado para nuestra ecuación de calor 
+num_steps = int(t_final / dt) # Lo indicamos como un valor entero, para evitar inexactitudes o errores en los bucles que utilizaremos más adelante
 
 
 # -----------------------------
