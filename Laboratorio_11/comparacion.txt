@@ -1,0 +1,30 @@
+Archivo de Comparación.
+
+En este archivo se procederá a indicar la respuesta a algunas preguntas, en donde tenemos las iteraciones para Jacobi, las iteraciones paa Gauss-Seidel, la tolerancia y la solución más parecida a la solución analítica.
+
+Datos del Método de Jacobi:
+
+N = 50
+h = 0.02
+Tolerancia = 1e-08
+Iteraciones = 4664
+Error de convergencia final = 9.998846826897445e-09
+Error maximo respecto a la solucion exacta = None
+
+Datos del Método de Gauss-Seidel:
+
+Método: Gauss-Seidel 2D
+N =  50
+h =  0.02
+Tolerancia =  1e-08
+Iteraciones =  3608
+Error de convergencia final =  9.99419812880431e-09
+Error maximo vs. solución exacta = 1.2879695171531813e-05
+
+
+Procedemos a realizar una breve discusión acerca de los métodos:
+
+- Podemos observar que el Método de Gauss-Seidel converge mucho más rápido que el método de Jacobi, por lo que el número de iteraciones se reduce de forma considerable para alcanzar una tolerancia
+que sea similar y lo que podemos observar es que con Gauss-Seidel utilizamos los valores actualizados de los nodos adyacentes, lo que permite alcanzar mejores resultados con un menor número de iteraciones.
+- Ambos métodos aproximan de forma excelente la solución analítica lo cual es muy bueno, porque demuestra una enorme efectividad para la resolución de problemas de este tipo. Los mapas de calor nos ayuda a evidenciar 
+el comportamiento de esto que mencionamos y a observar cómo se comportan con el paso de malla h elegido.
