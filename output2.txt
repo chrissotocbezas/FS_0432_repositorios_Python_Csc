@@ -1,0 +1,4 @@
+---Integración en d=4 ---
+Analítico: 0.16425572
+Monte Carlo: 0.16438860(Error: 0.00013289, Tiempo: 0.2198s)
+Simpson: 0.16450182(Error: 0.00024610, Tiempo: 0.0031s)
