@@ -8,7 +8,7 @@ I = int_0^1 ... int_0^1 prod_i sin(pi x_i) dx_1 ... dx_d
 # Procedemos a importar librerías útiles para realizar nuestra integración de Monte Carlo. 
 
 import numpy as np 
-import scipy.integrate import simpson 
+from scipy.integrate import simpson 
 import time
 
 d = 3 # dimensión del problema
