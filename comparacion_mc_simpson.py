@@ -48,7 +48,7 @@ N_total_simpson = N_simpson**d
 t0_simpson = time.time()
 
 x_1d = np.linspace(0, 1, N_simpson)
-malla = np.meshgrid(*]x_1d] * d, indexing="ij")
+malla = np.meshgrid(*[x_1d] * d, indexing="ij")
 
 Z = np.prod([np.sin(np.pi * m) for m in malla], axis=0)
 
