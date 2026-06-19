@@ -1,0 +1,4 @@
+---Integración en d=3 ---
+Analítico: 0.25801228
+Monte Carlo: 0.25773203(Error: 0.00028025, Tiempo: 0.1667s)
+Simpson: 0.25830216(Error: 0.00028988, Tiempo: 0.0012s)
