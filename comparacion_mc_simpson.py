@@ -32,3 +32,34 @@ integral_mc =
 
 t1_mc = time.time()
 error_mc = abs(integral_mc - valor_analitico)
+
+print(
+    f"Monte Carlo: {integral_mc:.8f}"
+    f"(Error: {error_mc:.8f}, Tiempo: {t1_mc - t0_mc:.4f}s)"
+)
+
+# ---------------------------------------------------------------------------------------------------------
+# MÉTODO DE SIMPSON
+# ---------------------------------------------------------------------------------------------------------
+
+N_simpson = 10
+N_total_simpson = N_simpson**d
+
+t0_simpson = time.time()
+
+x_1d = np.linspace(0, 1, N_simpson)
+malla = np.meshgrid(*]x_1d] * d, indexing="ij")
+
+Z = np.prod([np.sin(np.pi * m) for m in malla], axis=0)
+
+integral_simpson = Z
+for _ in range(d):
+    integral_simpson = simpson(integral_simpson, x=x_1d, axis=0)
+
+t1_simpson = time.time()
+error_simpson = abs(integral_simpson - valor_analitico)
+
+print(
+    f"Simpson: {integral_simpson:.8f}"
+    f"(Error: {error_simpson:.8f}, Tiempo: {t1_simpson - t0_simpson:.4f}s)"
+)
