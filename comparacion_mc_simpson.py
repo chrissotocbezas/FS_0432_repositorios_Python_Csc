@@ -24,11 +24,24 @@ N_total_mc = 10**6
 
 t0_mc = time.time()
 
-'''
-TODO
-Implemente acá el método de Monte Carlo para la integral I.
-integral_mc =
-'''
+# Procedemos a colocar el método de la integración de Montecarlo...
+
+a, b = 0.0, 1.0
+muestras = np.random.uniform(a, b, (N_total_mc, d)) # Esto nos ayuda a generar las muestras necesarias para evaluar la función.
+
+# Procedemos a evaluar la función f(x_i) en cada una de las muestras generadas
+# Calculamos el producto de sin(pi * x) para cada componente de los vectores
+
+evaluaciones_montecarlo = np.prod(np.sin(np.pi * muestras), axis = 1)
+
+# Procedemos a calcular el promedio aritmético de estas evaluaciones:
+
+promedio = (1 / N_total_mc) * np.sum(evaluaciones_montecarlo) # Este corresponde al tercer paso correspondiente al algoritmo de Montecarlo.
+
+factor_escala = (b-a)**d
+integral_mc = promedio * factor_escala
+
+# Procedemos a ejecutar todo el método de Montecarlo... 
 
 t1_mc = time.time()
 error_mc = abs(integral_mc - valor_analitico)
