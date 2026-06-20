@@ -1,0 +1,3 @@
+---Integración en d=16 ---
+Analítico: 0.00072792
+Monte Carlo: 0.00072835(Error: 0.00000043, Tiempo: 0.3475s)
