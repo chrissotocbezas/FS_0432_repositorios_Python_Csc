@@ -1,0 +1,3 @@
+---Integración en d=32 ---
+Analítico: 0.00000053
+Monte Carlo: 0.00000051(Error: 0.00000002, Tiempo: 0.6865s)
