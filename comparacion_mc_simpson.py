@@ -11,7 +11,7 @@ import numpy as np
 from scipy.integrate import simpson 
 import time
 
-d = 32 # dimensión del problema
+d = 9 # dimensión del problema
 valor_analitico = (2.0 / np.pi)**d
 
 print(f"---Integración en d={d} ---")
